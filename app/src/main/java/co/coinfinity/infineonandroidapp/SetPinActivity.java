@@ -32,6 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.ECKeyPair;
+import org.web3j.crypto.Keys;
 
 /**
  * Activity class used for setting PIN functionality.
@@ -154,6 +155,9 @@ public class SetPinActivity extends AppCompatActivity {
                     pubKeyString = sasakey;
                     privateKeyString = sasakey2;
                 }
+
+                //pubKeyString = sasakey;
+                //privateKeyString = sasakey2;
                 //showToast("sasa1c", this);
 
                 pin.setText(privateKeyString);

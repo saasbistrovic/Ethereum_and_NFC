@@ -311,8 +311,9 @@ public class SendTransactionActivity extends AppCompatActivity {
                     //recipientPrivateKeyString = keyPair.getPrivateKey().toString(16);
                 } else
                 {
-                    readRecipientAddress = sasakey;
-                    recipientPrivateKeyString = sasakey2;
+                    Credentials sasa = Credentials.create(sasakey2);
+                    readRecipientAddress = sasa.getEcKeyPair().getPublicKey().toString(16);
+                    recipientPrivateKeyString = sasa.getEcKeyPair().getPrivateKey().toString(16);
                 }
                 //showToast("sasa1c", this);
                 //showToast("SASA222", this);
@@ -486,7 +487,7 @@ public class SendTransactionActivity extends AppCompatActivity {
                     Transfer.GAS_LIMIT,
                     BigInteger.valueOf(2500000000L), //gasLimit
                     //DefaultGasProvider.GAS_LIMIT,//maxPriorityFeePerGas
-                    BigInteger.valueOf(750000000000L)//maxFeePerGas//,
+                    BigInteger.valueOf(7500000000000L)//maxFeePerGas//,
                     //Transfer.GAS_LIMIT,
                     //Convert.toWei("3000000000", Convert.Unit.WEI).toBigInteger(),
                     //Convert.toWei("100000000000", Convert.Unit.WEI).toBigInteger()  // 1 wei = 10^-18 Ether

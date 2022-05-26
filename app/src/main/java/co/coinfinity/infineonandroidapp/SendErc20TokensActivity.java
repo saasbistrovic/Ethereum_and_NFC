@@ -341,8 +341,11 @@ public class SendErc20TokensActivity extends AppCompatActivity {
                      */
                 } else
                 {
-                    pubKeyString = sasakey;
-                    privateKeyString = sasakey2;
+                    Credentials sasa = Credentials.create(sasakey2);
+                    pubKeyString = sasa.getEcKeyPair().getPublicKey().toString(16);
+                    privateKeyString = sasa.getEcKeyPair().getPrivateKey().toString(16);
+                    //pubKeyString = sasakey;
+                    //privateKeyString = sasakey2;
                 }
                 //showToast("sasa1c", this);
 
@@ -445,7 +448,7 @@ public class SendErc20TokensActivity extends AppCompatActivity {
 
                     @Override
                     public BigInteger getMaxFeePerGas(String contractFunc) {
-                        return BigInteger.valueOf(750000000000L);
+                        return BigInteger.valueOf(7500000000000L);
                     }
 
                     @Override
@@ -455,22 +458,22 @@ public class SendErc20TokensActivity extends AppCompatActivity {
 
                     @Override
                     public BigInteger getGasPrice(String contractFunc) {
-                        return GAS_PRICE;
+                        return GAS_PRICE.divide(new BigInteger("100"));
                     }
 
                     @Override
                     public BigInteger getGasPrice() {
-                        return GAS_PRICE;
+                        return GAS_PRICE.divide(new BigInteger("100"));
                     }
 
                     @Override
                     public BigInteger getGasLimit(String contractFunc) {
-                        return GAS_LIMIT;
+                        return GAS_LIMIT.divide(new BigInteger("100"));
                     }
 
                     @Override
                     public BigInteger getGasLimit() {
-                        return GAS_LIMIT;
+                        return GAS_LIMIT.divide(new BigInteger("100"));
                     }
                 };
 
